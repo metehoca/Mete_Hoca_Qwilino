@@ -68,7 +68,7 @@ uint16_t Qwilino_Temp::readRegister(uint8_t reg) {
     _wire->write(reg);
     _wire->endTransmission(false);
 
-    _wire->requestFrom(_addr, static_cast<uint8_t>(2));
+    _wire->requestFrom((uint8_t)_addr, (size_t)2);
     if (_wire->available() < 2) return 0x0000;
 
     uint16_t msb = _wire->read();

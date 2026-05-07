@@ -45,7 +45,7 @@ uint32_t Qwilino_Light::readRegister24(uint8_t reg) {
   _i2cPort->beginTransmission(_address);
   _i2cPort->write(reg);
   _i2cPort->endTransmission(false);
-  _i2cPort->requestFrom(_address, (uint8_t)3);
+  _i2cPort->requestFrom((uint8_t)_address, (size_t)3);
   
   if (_i2cPort->available() >= 3) {
     uint32_t val = _i2cPort->read();

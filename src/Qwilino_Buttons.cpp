@@ -18,7 +18,7 @@ bool QwilinoButtons::begin(TwoWire *wire) {
 }
 
 bool QwilinoButtons::update() {
-  uint8_t quantity = _wire->requestFrom(_address, (uint8_t)4);
+  uint8_t quantity = _wire->requestFrom((uint8_t)_address, (size_t)4);
 
   if (quantity < 4) {
     return false;

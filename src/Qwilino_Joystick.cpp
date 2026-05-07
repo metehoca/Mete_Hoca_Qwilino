@@ -27,7 +27,9 @@ int16_t Qwilino_Joystick::readRegister16(uint8_t reg) {
   _i2cPort->beginTransmission(_address);
   _i2cPort->write(reg);
   _i2cPort->endTransmission(false);
-  _i2cPort->requestFrom(_address, (uint8_t)2);
+  
+  // DÜZELTİLEN SATIR
+  _i2cPort->requestFrom((uint8_t)_address, (size_t)2);
   
   if (_i2cPort->available() >= 2) {
     uint8_t lsb = _i2cPort->read();
@@ -41,7 +43,9 @@ uint8_t Qwilino_Joystick::readRegister8(uint8_t reg) {
   _i2cPort->beginTransmission(_address);
   _i2cPort->write(reg);
   _i2cPort->endTransmission(false);
-  _i2cPort->requestFrom(_address, (uint8_t)1);
+  
+  // DÜZELTİLEN SATIR
+  _i2cPort->requestFrom((uint8_t)_address, (size_t)1);
   
   if (_i2cPort->available()) {
     return _i2cPort->read();

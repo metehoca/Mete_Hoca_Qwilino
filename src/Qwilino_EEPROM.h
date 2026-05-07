@@ -10,6 +10,10 @@
   #define QWILINO_EEPROM_DEFAULT_WIRE Wire
 #endif
 
+#ifdef EEPROM_SIZE
+  #undef EEPROM_SIZE
+#endif
+
 class QwilinoEEPROM {
 public:
   static constexpr uint8_t DEFAULT_ADDRESS = 0x50;

@@ -69,7 +69,7 @@ uint16_t Qwilino_Potentiometer::readRegister(uint8_t reg) {
   _wire->write(reg);
   _wire->endTransmission();
 
-  _wire->requestFrom(_address, (uint8_t)2);
+  _wire->requestFrom((uint8_t)_address, (size_t)2);
   if (_wire->available() == 2) {
     uint16_t value = _wire->read() << 8;
     value |= _wire->read();

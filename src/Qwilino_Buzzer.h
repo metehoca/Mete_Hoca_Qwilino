@@ -4,6 +4,13 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+#ifdef tone
+  #undef tone
+#endif
+#ifdef noTone
+  #undef noTone
+#endif
+
 #define QWILINO_BUZZER_ADDR 0x1E
 
 #if defined(ARDUINO_UNOR4_WIFI) || defined(ARDUINO_NANO_R4)

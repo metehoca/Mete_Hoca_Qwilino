@@ -298,14 +298,14 @@ void Qwilino_OLED::printLine(const __FlashStringHelper *text,
 void Qwilino_OLED::printLine(int value, int line, bool center)
 {
     char buf[12];                  
-    ltoa((long)value, buf, 10);
+    sprintf(buf, "%ld", (long)value);
     printLine(buf, line, center);
 }
 
 void Qwilino_OLED::printLine(long value, int line, bool center)
 {
     char buf[12];
-    ltoa(value, buf, 10);
+    sprintf(buf, "%ld", value);
     printLine(buf, line, center);
 }
 
@@ -321,7 +321,7 @@ void Qwilino_OLED::printLine(const char *label, int value,
                               int line, bool center)
 {
     char vbuf[12];
-    ltoa((long)value, vbuf, 10);
+    sprintf(vbuf, "%ld", (long)value);
 
     char buf[22];
     uint8_t li = 0;
@@ -336,7 +336,7 @@ void Qwilino_OLED::printLine(const char *label, long value,
                               int line, bool center)
 {
     char vbuf[12];
-    ltoa(value, vbuf, 10);
+    sprintf(vbuf, "%ld", value);
 
     char buf[22];
     uint8_t li = 0;

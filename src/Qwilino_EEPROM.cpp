@@ -37,7 +37,7 @@ uint8_t QwilinoEEPROM::readByte(uint16_t address) {
   _wire->write((int)(address & 0xFF));
   _wire->endTransmission();
   
-  _wire->requestFrom(_address, (uint8_t)1);
+  _wire->requestFrom((uint8_t)_address, (size_t)1);
   if (_wire->available()) {
     return _wire->read();
   }

@@ -1,5 +1,12 @@
 #include "Qwilino_Buzzer.h"
 
+#ifdef tone
+  #undef tone
+#endif
+#ifdef noTone
+  #undef noTone
+#endif
+
 QwilinoBuzzer::QwilinoBuzzer(uint8_t address) {
   _address = address;
   _wire = &QWILINO_BUZZER_DEFAULT_WIRE;

@@ -19,7 +19,7 @@ bool QwilinoKnob::begin(TwoWire *wire) {
 }
 
 void QwilinoKnob::update() {
-  uint8_t received = _wire->requestFrom(_address, (uint8_t)4);
+  uint8_t received = _wire->requestFrom((uint8_t)_address, (size_t)4);
 
   if (received == 4) {
     _wire->read();

@@ -59,7 +59,7 @@ DateTime Qwilino_Clock::now() {
     _wire->write(0x02);
     _wire->endTransmission();
 
-    _wire->requestFrom(_address, (uint8_t)7);
+    _wire->requestFrom((uint8_t)_address, (size_t)7);
     uint8_t ss = bcd2bin(_wire->read() & 0x7F);
     uint8_t mm = bcd2bin(_wire->read() & 0x7F);
     uint8_t hh = bcd2bin(_wire->read() & 0x3F);
@@ -89,7 +89,7 @@ uint8_t Qwilino_Clock::readRegister(uint8_t reg) {
     _wire->beginTransmission(_address);
     _wire->write(reg);
     _wire->endTransmission();
-    _wire->requestFrom(_address, (uint8_t)1);
+    _wire->requestFrom((uint8_t)_address, (size_t)1);
     return _wire->read();
 }
 

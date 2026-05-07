@@ -20,7 +20,7 @@ void QwilinoThermo::readSensor() {
   
   delay(40);
   
-  uint8_t num = _wire->requestFrom(_address, (uint8_t)4);
+  uint8_t num = _wire->requestFrom((uint8_t)_address, (size_t)4);
   
   if (num == 4) {
     uint8_t data[4];
